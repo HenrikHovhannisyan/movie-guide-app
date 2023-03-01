@@ -13,7 +13,6 @@ let getMovie = () => {
 
     else {
         fetch(url).then((res) => res.json()).then((data) => {
-            console.log(data)
             if (data.Response === "True") {
                 result.innerHTML = `
                     <div class="info">
@@ -25,21 +24,23 @@ let getMovie = () => {
                                 <h4>${data.imdbRating}</h4>
                             </div>
                             <div class="details">
-                                <span>${data.Rated}</span>
-                                <span>${data.Year}</span>
-                                <span>${data.Runtime}</span>
+                                <span>Rated: ${data.Rated}</span>
+                                <span>Year: ${data.Year}</span>
+                                <span>Time: ${data.Runtime}</span>
                             </div>
                             <div class="genre">
                                 <div>${data.Genre.split(",").join("</div><div>")}</div>
                             </div>
                         </div>
                     </div>
-                    <h3>Plot:</h3>
+                    <h3>Plot</h3>
                     <p>${data.Plot}</p>
-                    <h3>Cast:</h3>
+                    <h3>Cast</h3>
                     <p>${data.Actors}</p>
-                    <h3>Country:</h3>
+                    <h3>Country</h3>
                     <p>${data.Country}</p>
+                    <h3>Box office</h3>
+                    <p>${data.BoxOffice}</p>
                 `;
             }
 
